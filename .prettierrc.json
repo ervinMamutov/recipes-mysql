@@ -8,7 +8,7 @@
     {
       "files": ["*.html", "*.ejs", "*.css", "*.js"],
       "options": {
-        "tabWidth": 4,
+        "tabWidth": 2,
         "useTabs": false
       }
     }

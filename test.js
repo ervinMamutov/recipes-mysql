@@ -3,9 +3,12 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
 
+import userRoutes from './routes/user.js';
+import recipeRoutes from './routes/recipe.js';
+
 // configure dotenv
 dotenv.config();
-const PORT = process.env.PORT || 3009;
+const PORT = process.env.PORT || 5009;
 
 // initialize express
 const app = express();
@@ -24,6 +27,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // use routes
+app.use(userRoutes);
+app.use(recipeRoutes);
 
 // error
 app.use((err, req, res, next) => {
