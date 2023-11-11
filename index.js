@@ -2,6 +2,9 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
+import logger from './middleware/logger.js';
+import userRouter from './routes/user.js';
+import recipeRouter from './routes/recipe.js';
 
 // configure dotenv
 dotenv.config();
@@ -23,7 +26,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
+// middleware
+app.use(logger);
+
 // use routes
+app.use(userRouter);
+app.use(recipeRouter);
 
 // error
 app.use((err, req, res, next) => {
